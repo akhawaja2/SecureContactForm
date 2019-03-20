@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel='stylesheet' type = 'text/css' href='mailer.css'/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<h1 class = "heading">Contact Information</h1>
+<div class="container">
+	<div class="row">
+    <div class="col-md-4">
+		<div class="form_main">
+                <div class="form">
+				<form action = "/submit" method = "post" id="contactFrm">
+					<fieldset style = "width:550px">
+					<p>
+						<div>
+						<input type = "radio" name = "gender" value = "Mr"> Mr. 
+						<input type = "radio" name = "gender" value = "Mrs"> Mrs. 
+						<input type = "radio" name = "gender" value = "Ms"> Ms. 
+						<input type = "radio" name = "gender" value = "Dr"> Dr. 
+						</div>
+					</p>
+					<p>
+					<div>
+						<label  for = "first" >First Name: </label>
+						<input type = "text" name = "firstName" class = "txt" required>
+						<label for = "last">Last Name:</label>
+						<input type = "text" name = "lastName" class = "txt" required>
+					</div>
+					</p>
+					<p>
+					<div>
+						<label for = "street" > Street: </label>
+						<input type = "text" name = "street" location = "street" class = "txt">
+						<label for = "city" name = "city"> City: </label>
+						<input type = "text" name = "city" location = "city" class = "txt">
+					</div>
+					</p>
+
+					<p>
+					<div>
+						<label id = "state" for = "state" name = "state">State: </label>
+						<select class = "state" name = "state" id = "state">
+							<option value = "" disabled = "disabled" selected = "selected"> </option>
+							<option value = "NJ"> NJ </option>
+							<option value = "NY"> NY </option>
+							<option value = "PA"> PA </option>
+							<option value = "CT"> CT </option>
+						</select>
+						</br>
+						</br>
+						<label for = "zip"> Zip: </label>
+						<input type = "text" name = "zip" location = "zip" class = "txt">
+					</div>
+					</p>
+
+					<p>
+					<div>
+						<label for = "phone" >Phone:</label>
+						<input type = "text" name = "phone" location = "phone" class = "txt">
+					</div>
+					</p>
+
+					<p>
+					<div>
+						<label for = "email" >Email:</label>
+						<input type = "text" name = "email" location = "email" class = "txt">
+					</div>
+					</p>
+
+					<p>
+					<label for = "contact"  name = "contact"> How may we contact you? </label>
+					<div>
+						<label class = "container2">
+						<input type = "checkbox" id="squaredFour" name = "phoneBox"> Phone </input>
+						<span class="checkmark"></span>
+						</label>
+						<label class = "container2">
+						<input type = "checkbox" id="squaredFour" name = "mail" > Mail </input>
+						<span class="checkmark"></span>
+						</label>
+						<label class = "container2">
+						<input type = "checkbox" id="squaredFour" name = "emailBox" > Email </input>
+						<span class="checkmark"></span>
+						</label>
+						<label class = "container2">
+						<input type = "checkbox" id="squaredFour" name = "anyBox" checked> Any </input>
+						<span class="checkmark"></span>
+						</label>
+					</div>
+					</p>
+					</fieldset>
+
+					<div id = "buttons">
+						<button type = "submit" name = "submit" value = "submit" class = "button"> Send me spam forever! </button>
+						<p><a href = "/contacts" class = "button"> View list of contacts! </a></p>
+					</div>
+				</form>
+            </div>
+            </div>
+            </div>
+	</div>
+</div>
+	
+</body>
+</html>
+
+<!--https://www.sanwebe.com/2014/08/css-html-forms-designs to make form look pretty>

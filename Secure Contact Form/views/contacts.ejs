@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Contacts </title>
+	<link href ="contacts.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+	<style type="text/css">
+		table, th, td
+		{
+			border: 1px solid black;
+		}
+	</style>
+
+</head>
+<body>
+	<h1 class = "heading"> Contact List </h1>
+	<input type="text" id="myInput" onkeyup="searchTable()" placeholder="Search for contact..">
+	<div class = "table">
+	<table id = "myTable">
+		<tr>
+			<th>Name</th>
+			<th>Address</th>
+			<th>Phone</th>
+			<th>Email</th>
+			<th>Contact by mail?</th>
+			<th>Contact by email?</th>
+			<th>Contact by phone? </th>
+
+
+			<th> Update contact? </th>
+			<th> Delete Contact </th>
+		</tr>
+
+		<% for (var i in allInfo) { %>
+				<% var address = allInfo[i].street  + " " +  allInfo[i].city  + " " + allInfo[i].state + " " +  allInfo[i].zip %>
+
+			<tr> 
+				<td> <%=allInfo[i].gender %>. <%= allInfo[i].fname %> <%= allInfo[i].lname %></td> 
+		 		<td class = "address"> <%=allInfo[i].street %>, <%= allInfo[i].city %>, <%= allInfo[i].state %> <%= allInfo[i].zip %></td> 
+				<td><%=allInfo[i].phone %></td> 
+				<td><%=allInfo[i].email %></td> 
+				<td><%=allInfo[i].mail %></td> 
+				<td><%=allInfo[i].canEmail %></td> 
+				<td><%=allInfo[i].canPhone %></td> 
+
+
+				<td><a href = "/updatemailer?_id= <%=allInfo[i]._id %>">Update Contact</a></td>
+				<td><a href = "/deleted?_id= <%=allInfo[i]._id %>">Delete Contact</a></td>
+				
+			</tr>  
+
+		<% } %>
+	</table> 
+	<form action = "/mailer" method = "post">
+		<button type = "submit" value = "create" id = "newContact"> Create a new contact! </button>
+	</form>
+	<div id="map"></div>
+	</div>
+	<script>
+	function searchTable() {
+	  var input, filter, table, tr, td, i;
+	  input = document.getElementById("myInput");
+	  filter = input.value.toUpperCase();
+	  table = document.getElementById("myTable");
+	  tr = table.getElementsByTagName("tr");
+	  for (i = 0; i < tr.length; i++) {
+	    td = tr[i].getElementsByTagName("td")[0];
+	    if (td) {
+	      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+	        tr[i].style.display = "";
+	      } else {
+	        tr[i].style.display = "none";
+	      }
+	    }       
+	  }
+	}
+	</script>
+
+
+	
+	<script>
+	var map;
+	var geocoder = new google.maps.Geocoder();
+	function initMap() {
+		map = new google.maps.Map(document.getElementById('map'), {
+			center: {lat: 41.083, lng: -74.174},
+			zoom: 8
+		});
+		//var address = document.getElementById('address').value;
+		//console.log(address);
+
+		var colArray = $('#myTable td:nth-child(2)').map(function(){
+			return $(this).text();
+		}).get();
+
+	}
+	</script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGysAFeYIRV2qqMeEcnehH9igIaSYxvvs&callback=initMap"></script>
+</body>
+
+</html>

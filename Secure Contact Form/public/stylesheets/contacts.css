@@ -1,0 +1,68 @@
+.table {
+	position:relative;
+}
+#map {
+	position:absolute;
+	bottom: 1110;
+    left: 0;
+	height:500px;
+	width:500px;
+
+}
+tbody tr:nth-child(odd) {
+   background-color: #ccc;
+}
+tr td:hover {
+ background: #666; color: #FFF; 
+} 
+.heading {
+    border-bottom: 1px solid #fcab0e;
+    padding-bottom: 9px;
+    position: relative;
+    text-align: center;
+}
+.heading span {
+    background: #9e6600 none repeat scroll 0 0;
+    bottom: -2px;
+    height: 3px;
+    left: 0;
+    position: absolute;
+    width: 75px;
+}   
+
+#myInput {
+    
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 12px;
+    font-size: 16px;
+	width: 250px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    padding: 12px 20px 12px 5px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    margin-bottom: 10px;
+}
+/* When the input field gets focus, change its width to 100% */
+#myInput[type=text]:focus {
+    width: 500px;
+}
+
+#newContact {
+    background-color: rebeccapurple;
+    border: 1px solid black;
+    border-radius: 12px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: auto;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+#newContact:hover{
+    background-color: darkgrey;
+}

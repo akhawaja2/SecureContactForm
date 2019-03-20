@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<link rel='stylesheet' type = 'text/css' href='mailer.css'/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<h1 class = "heading">Update Information</h1>
+<div class="container">
+	<div class="row">
+    <div class="col-md-4">
+		<div class="form_main">
+                <div class="form">
+				<form action = "/updated" method = "post" id = "contactFrm">
+				<% for (var i in updateContact)
+					var allInfo = updateContact[i]; %>
+					<fieldset style = "width:550px">
+					<p>
+						<div>
+						<input type = "radio" name = "gender" value = "Mr" checked = "<%= allInfo.gender %>"> Mr. 
+						<input type = "radio" name = "gender" value = "Mrs"> Mrs. 
+						<input type = "radio" name = "gender" value = "Ms" > Ms. 
+						<input type = "radio" name = "gender" value = "Dr" > Dr. 
+						</div>
+					</p>
+					<p>
+					<div>
+						<label  for = "first">First Name: </label>
+						<input type = "text" class = "txt" name = "firstName" value = "<%= allInfo.fname %>" required>
+						<label for = "last">Last Name:</label>
+						<input type = "text" class = "txt" name = "lastName" value = "<%= allInfo.lname %>" required>
+					</div>
+					</p>
+					<p>
+					<div>
+						<label for = "street" > Street: </label>
+						<input type = "text" class = "txt" name = "street" location = "street" value = "<%= allInfo.street %>">
+						<label for = "city" name = "city"> City: </label>
+						<input type = "text" class = "txt" name = "city" location = "city" value = "<%= allInfo.city %>"> 
+					</div>
+					</p>
+					<p>
+					<div>
+						<label id = "state" for = "state" name = "state">State: </label>
+						<select name = "state" id = "state">
+							<option value = "" disabled = "disabled" selected = "selected"> </option>
+							<option value = "NJ" selected> NJ </option>
+							<option value = "NY"> NY </option>
+							<option value = "PA"> PA </option>
+							<option value = "CT"> CT </option>
+						</select>
+						</br>
+						</br>
+						<label for = "zip"> Zip: </label>
+						<input type = "text" class = "txt" name = "zip" location = "zip" value = "<%= allInfo.zip %>">
+					</div>
+					</p>
+
+					<p>
+					<div>
+						<label for = "phone" >Phone:</label>
+						<input type = "text" class = "txt" name = "phone" location = "phone" value = "<%= allInfo.phone %>">
+					</div>
+					</p>
+
+					<p>
+					<div>
+						<label for = "email" >Email:</label>
+						<input type = "text" class = "txt" name = "email" location = "email" value = "<%= allInfo.email %>">
+					</div>
+					</p>
+
+					<p>
+					<label for = "contact"  name = "contact"> How may we contact you? </label>
+					<div>
+						<label class = "container2">
+						<input type = "checkbox" id="squaredFour" name = "phoneBox"> Phone </input>
+						<span class="checkmark"></span>
+						</label>
+						<label class = "container2">
+						<input type = "checkbox" id="squaredFour" name = "mail" > Mail </input>
+						<span class="checkmark"></span>
+						</label>
+						<label class = "container2">
+						<input type = "checkbox" id="squaredFour" name = "emailBox" > Email </input>
+						<span class="checkmark"></span>
+						</label>
+						<label class = "container2">
+						<input type = "checkbox" id="squaredFour" name = "anyBox" checked> Any </input>
+						<span class="checkmark"></span>
+						</label>
+					</div>
+					</p>
+					</fieldset>
+
+					<div>
+						<button type = "submit" name = "submit" value = "submit" class = "button"> Update! </button>
+					</div>
+				</form>
+            </div>
+            </div>
+            </div>
+	</div>
+</div>
+</body>
+</html>
+
+<!--https://www.sanwebe.com/2014/08/css-html-forms-designs to make form look pretty>
