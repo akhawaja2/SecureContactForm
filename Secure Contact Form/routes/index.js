@@ -9,12 +9,10 @@ var NodeGeocoder = require('node-geocoder');
 var options = {
 	provider: 'google',
 	httpAdapter: 'https',
-	apiKey: 'boop',
+	apiKey: 'AIzaSyDAptXkubV1Slb7myzGf2wJHlmjW5mJFb0',
 	formatter: null
 };
 var geocoder = NodeGeocoder(options);
-
-
 var MongoClient = require('mongodb').MongoClient;
 var ObjectId = require('mongodb').ObjectID;
 var url = 'mongodb://localhost:27017/final';
@@ -23,7 +21,12 @@ var updateContact;
 var id;
 
 
-MongoClient.connect(url, function(err,db) {
+//2018 
+//MongoClient.connect(url, function(err,db) {
+
+//In Mongodb >= V3.0 we have to use const db = client.db('<DB NAME>')
+MongoClient.connect(url, (error, client) => {
+	const db = client.db('Form');
 	contacts = db.collection('contacts');
 
 	contacts.find().toArray(function (err, result) {
